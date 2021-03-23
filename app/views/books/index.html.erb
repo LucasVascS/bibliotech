@@ -1,7 +1,21 @@
 <h1>Livros</h1>
 
-<ul>
+
 <% @books.each do |book| %>
-    <li><%= book %></li>
+<table>
+    <tr>
+       <th>Nome do livro</th>
+       <th>Nome do Autor </th>
+       <th>Sinopse</th>
+       <th>Data de Cadastro</th>
+       
+    </tr>
+    <tr>
+        <td><%= book.name %></td>
+        <td><%= book.author %></td>
+        <td><%= book.synopsis %></td>
+        <td><%= book.created_at %></td>
+    </tr>
+   
+</table>
 <%end%>
-</ul>

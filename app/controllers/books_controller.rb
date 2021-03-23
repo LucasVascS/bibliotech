@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
 
     def index
-        @books = ['Perguntas e respostas sobre Gênesis',
-         'Mostra-nos o Pai o que nos basta',
-         'Crendo em Deus']
+        @books = Book.all
+
+    end
+
+    def show
+        @book = Book.find(params[:id])
 
     end
 end
