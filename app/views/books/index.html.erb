@@ -9,12 +9,16 @@
        <th>Sinopse</th>
        <th>Data de Cadastro</th>
        
+       
     </tr>
     <tr>
-        <td><%= book.name %></td>
+        <td><%= book.name%></td>
         <td><%= book.author %></td>
         <td><%= book.synopsis %></td>
         <td><%= book.created_at %></td>
+        <td><%= link_to "Visualizar", book %></td>
+        <td><%= link_to "Editar", edit_book_path(book) %></td>
+        <td>Excluir</td>
     </tr>
    
 </table>
