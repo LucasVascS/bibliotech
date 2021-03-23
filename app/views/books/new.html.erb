@@ -1,0 +1,7 @@
+<h1>Cadastro de novo livro</h1>
+<%=simple_form_for(@book) do |f| %>
+    <%=f.input :name%>
+    <%=f.input :author%>
+    <%=f.input :synopsis%>
+    <%=f.button :submit%>
+<% end%>
