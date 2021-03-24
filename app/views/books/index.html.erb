@@ -2,28 +2,40 @@
 
 <%=link_to "Cadastrar novo livro", new_book_path %>
 
-<% @books.each do |book| %>
 <table class="table table-striped">
-    <thead>
+  <thead>
     <tr>
        <th scope="col">Nome do livro</th>
-       <th scope="col">Nome do Autor </th>
-       <th scope="col">Sinopse</th>
        <th scope="col">Categoria</th>
-       <th scope="col">Data de Cadastro</th>       
+       <th scope="col">Nome do Autor </th>      
+       <th scope="col">Data de Cadastro</th>
+       <th scope="col">Ações</th>       
     </tr>
     </thead>
+    
+  <% @books.each do |book| %>
+
+    
     <tbody>
     <tr>
-        <td><%= book.name%></td>
-        <td><%= book.author %></td>
-        <td><%= book.synopsis %></td>
-        <td><%= book.category.categoriename %></td>
-        <td><%= book.created_at %></td>
-        <td><%= link_to "Visualizar", book %></td>
-        <td><%= link_to "Editar", edit_book_path(book) %></td>
-        <td>Excluir</td>
+      <td><%= book.name%></td>
+      <td><%= book.category.categoriename %></td>
+      <td><%= book.author %></td>      
+      <td><%= book.created_at %></td>
+      <td>
+      <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Opções
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+    <li><a class="dropdown-item" href="#"><%= link_to "Visualizar", book %></a></li>
+    <li><a class="dropdown-item" href="#"><%= link_to "Editar", edit_book_path(book) %></a></li>
+    <li><a class="dropdown-item" href="#"><%= link_to "Excluir", book_path(book), method: :delete, data:{confirm: "Deseja excluir este livro ? "} %></a></li>
+  </ul>
+      </td>
+        
     </tr>
     </tbody>
+  <%end%>
 </table>
-<%end%>
+
