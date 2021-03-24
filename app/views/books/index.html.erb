@@ -3,24 +3,27 @@
 <%=link_to "Cadastrar novo livro", new_book_path %>
 
 <% @books.each do |book| %>
-<table>
+<table class="table table-striped">
+    <thead>
     <tr>
-       <th>Nome do livro</th>
-       <th>Nome do Autor </th>
-       <th>Sinopse</th>
-       <th>Data de Cadastro</th>
-       
-       
+       <th scope="col">Nome do livro</th>
+       <th scope="col">Nome do Autor </th>
+       <th scope="col">Sinopse</th>
+       <th scope="col">Categoria</th>
+       <th scope="col">Data de Cadastro</th>       
     </tr>
+    </thead>
+    <tbody>
     <tr>
         <td><%= book.name%></td>
         <td><%= book.author %></td>
         <td><%= book.synopsis %></td>
+        <td><%= book.category.categoriename %></td>
         <td><%= book.created_at %></td>
         <td><%= link_to "Visualizar", book %></td>
         <td><%= link_to "Editar", edit_book_path(book) %></td>
         <td>Excluir</td>
     </tr>
-   
+    </tbody>
 </table>
 <%end%>

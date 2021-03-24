@@ -3,5 +3,6 @@
     <%=f.input :name%>
     <%=f.input :author%>
     <%=f.input :synopsis%>
+    <%=f.association :category, label_method: :categoriename%>
     <%=f.button :submit%>
 <% end%>

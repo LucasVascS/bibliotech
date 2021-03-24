@@ -28,7 +28,7 @@ class BooksController < ApplicationController
     end
 
     def create
-        book_params = params.require(:book).permit(:name, :author, :synopsis)
+        book_params = params.require(:book).permit(:name, :author, :synopsis, :category_id)
         @book = Book.new(book_params)
         @book.save
         redirect_to @book
