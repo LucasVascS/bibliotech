@@ -1,6 +1,8 @@
 <h1>Livros</h1>
 
-<%=link_to "Cadastrar novo livro", new_book_path %>
+<%=link_to "Cadastrar novo livro", new_book_path%><br>
+<%=link_to "Sair", destroy_user_session_path , method: :delete %>
+<p>Usuário logado: <%= current_user.email %></p>
 
 <table class="table table-striped">
   <thead>
