@@ -1,0 +1,8 @@
+<%=simple_form_for(@book) do |f| %>
+    <%=f.input :name%>
+    <%=f.input :author%>
+    <%=f.input :synopsis%>
+    <%=f.association :category, label_method: :categoriename%>
+    <%=f.button :submit%>
+    <%=f.button :button, "Cancelar", type: :reset%>
+<% end%>

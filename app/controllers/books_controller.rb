@@ -3,7 +3,7 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @books = Book.all
+        @books = Book.order(created_at: :desc).all
 
     end
 
@@ -20,8 +20,11 @@ class BooksController < ApplicationController
     def update
         @book = Book.find(params[:id])
         book_params = params.require(:book).permit(:name, :author, :synopsis, :category_id)
-        @book.update(book_params)
-        redirect_to @book
+        if @book.update(book_params)
+            redirect_to @book
+        else
+            render :edit
+        end
     end
 
     def new
@@ -32,9 +35,11 @@ class BooksController < ApplicationController
     def create
         book_params = params.require(:book).permit(:name, :author, :synopsis, :category_id)
         @book = Book.new(book_params)
-        @book.save
-        redirect_to @book
-    
+        if @book.save
+            redirect_to @book
+        else
+            render :new
+        end
     end
 
     def destroy

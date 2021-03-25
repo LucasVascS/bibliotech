@@ -1,9 +1,4 @@
 <h1>Editando livro</h1>
-<%=simple_form_for(@book) do |f| %>
-    <%=f.input :name%>
-    <%=f.input :author%>
-    <%=f.input :synopsis%>
-    <%=f.association :category, label_method: :categoriename%>
-    <%=f.button :submit%>
-<% end%>
+
+<%= render 'form'%>
     
