@@ -1,8 +1,15 @@
+
+
 <%=simple_form_for(@book) do |f| %>
-    <%=f.input :name%>
-    <%=f.input :author%>
-    <%=f.input :synopsis%>
-    <%=f.association :category, label_method: :categoriename%>
-    <%=f.button :submit%>
-    <%=f.button :button, "Cancelar", type: :reset%>
+    <div class="col-md-6">
+    <%= f.error_notification%>
+    <p><%= f.input :name, label: 'Nome do livro', error:'Campo obrigatório', input_html: {class:'form-control'}%></p>
+    <p><%= f.input :author, label: 'Autor', error:'Campo obrigatório', input_html: {class:'form-control'} %></p>
+    <p><%=f.input :synopsis, label: 'Sinopsi', error:'Campo obrigatório', input_html: {class:'form-control'}%></p>
+    <p><%=f.association :category, label: 'Categoria', error:'Campo obrigatório', label_method: :categoriename%></p>
+    </div>
+    <%=f.submit 'Salvar', class:"btn btn-primary"%>
+    <%=f.button :button, "Cancelar", type: :reset, class:"btn btn-primary"%>
+    
 <% end%>
+
