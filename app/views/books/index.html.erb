@@ -4,7 +4,7 @@
 
 <%=link_to "Cadastrar livro", new_book_path, class:'btn btn-primary'%><br>
 
-<p>Usuário logado: <%= current_user.email %></p>
+<p><strong>Usuário logado:</strong> <%= current_user.email %></p>
 
 <table class="table table-striped table-bordered">
   <thead>
@@ -42,4 +42,5 @@
     </tbody>
   <%end%>
 </table>
+
 
