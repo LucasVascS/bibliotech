@@ -9,7 +9,7 @@
     <p><%=f.association :category, label: 'Categoria', error:'Campo obrigatório', label_method: :categoriename%></p>
     </div>
     <%=f.submit 'Salvar', class:"btn btn-primary"%>
-    <%=f.button :button, "Cancelar", type: :reset, class:"btn btn-primary"%>
+    <%=link_to "Cancelar", :back, class:'btn btn-primary'%>
     
 <% end%>
 
