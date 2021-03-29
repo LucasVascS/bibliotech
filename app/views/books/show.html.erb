@@ -1,32 +1,34 @@
-<article>
+
 
 <%= render 'navbar'%>
 
-   
 
-</article>
+<h3>Detalhes do Livro</h3><br>
 
-<table class="table caption-top">
-  <caption>Detalhes do Livro</caption>
-  <thead>
-    <tr>
-      <th scope="col">Nome do livro</th>
-      <th scope="col">Nome do Autor </th>
-      <th scope="col">Sinopse</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Data de Cadastro</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      
-      <td><%=@book.name%></td>
-      <td><%=@book.author%></td>
-      <td><%=@book.synopsis%></td>
-      <td><%=@book.category.categoriename%></td>
-      <td><%=@book.created_at.strftime("%d/%m/%Y")%></td>
-    </tr>
-    
-  </tbody>
-</table>
-
+<div class="card" style="width: 18rem;">
+  
+  <div class="card-header">
+    <strong>Nome do Livro</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @book.name %></li>
+  </ul>
+  <div class="card-header">
+    <strong>Nome do Autor</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @book.author %></li>
+  </ul>
+  <div class="card-header">
+    <strong>Sinopsi</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @book.synopsis %></li>
+  </ul>
+  <div class="card-header">
+    <strong>Data de Cadastro</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @book.created_at.strftime("%d/%m/%Y") %></li>
+  </ul>
+</div>
