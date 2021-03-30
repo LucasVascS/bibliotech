@@ -31,4 +31,10 @@
   <ul class="list-group list-group-flush">
     <li class="list-group-item"><%= @book.created_at.strftime("%d/%m/%Y") %></li>
   </ul>
+  <div class="card-header">
+    <strong>Usuário que cadastrou</strong>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><%= @book.created_by.try(:email)%></li>
+  </ul>
 </div>
