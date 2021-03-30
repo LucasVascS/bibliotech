@@ -3,7 +3,10 @@ class BooksController < ApplicationController
     before_action :authenticate_user!
 
     def index
-        @books = Book.order(created_at: :desc).all
+        
+        @q = Book.ransack(params[:q])
+        @books = @q.result(distinct: true).order(created_at: :desc)
+        #@books = Book.order(created_at: :desc)
 
     end
 
@@ -35,6 +38,8 @@ class BooksController < ApplicationController
     def create
         book_params = params.require(:book).permit(:name, :author, :synopsis, :category_id)
         @book = Book.new(book_params)
+        @book.created_by_id = current_user.id
+
         if @book.save
             redirect_to @book
         else

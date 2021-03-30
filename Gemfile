@@ -33,25 +33,21 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-# Reduces boot times through caching; required in config/boot.rb
+
 gem 'bootsnap', '>= 1.1.0', require: false
-
-# Uses Simpleform for forms
 gem 'simple_form'
-
-# Uses Bootstrap for system layout
 gem 'bootstrap', '~> 5.0.0.beta2'
-
-# Jquery ressources
 gem 'jquery-rails'
-
-# Uses gem Devise for auttentication
 gem 'devise'
+gem 'ransack'
+
+
 
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
 end
 
 group :development do
