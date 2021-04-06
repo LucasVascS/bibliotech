@@ -1,4 +1,4 @@
-<%= render 'navbar'%>
+
 
 <h1>Livros</h1>
 
@@ -21,7 +21,8 @@
        <th scope="col">Categoria</th>
        <th scope="col">Nome do Autor </th>      
        <th scope="col">Data de Cadastro</th>
-       <th scope="col">Ações</th>       
+       <th scope="col">Pré-Vizualizar</th>
+       <th scope="col">Ações</th>
     </tr>
     </thead>
     
@@ -33,22 +34,21 @@
       <td><%= book.name%></td>
       <td><%= book.category.categoriename %></td>
       <td><%= book.author %></td>      
-      <td><%= book.created_at.strftime("%d/%m/%Y") %></td>
+      <td><%= l(book.created_at).truncate(29)%></td>
+      <td><%= link_to 'Preview', '#', class: 'open-modal', data: {url: book_path(book.id)} %></td>
       <td>
-      <div class="dropdown">
-  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-    Opções
-  </a>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <li><%= link_to "Visualizar", book, class:"dropdown-item"%></a></li>
-    <li><%= link_to "Editar", edit_book_path(book), class:"dropdown-item" %></a></li>
-    <li><%= link_to "Excluir", book_path(book), class:"dropdown-item", method: :delete, data:{confirm: "Deseja excluir este livro ? "} %></a></li>
-  </ul>
+        <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+        Opções
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <li><%= link_to "Visualizar", book, class:"dropdown-item"%></a></li>
+        <li><%= link_to "Editar", edit_book_path(book), class:"dropdown-item" %></a></li>
+        <li><%= link_to "Excluir", book_path(book), class:"dropdown-item", method: :delete, data:{confirm: "Deseja excluir este livro ? "} %></a></li>
+      </ul>
       </td>
-        
     </tr>
     </tbody>
   <%end%>
 </table>
-
-
+<td><%= render 'layouts/modal'%></td>

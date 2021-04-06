@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # procurar validação para não repetição do valor na tabela
-genres = Category.create([{categoriename: 'Religioso'}, {categoriename: 'Fantasia'},
+genres = Category.find_or_create_by([{categoriename: 'Religioso'}, {categoriename: 'Fantasia'},
 {categoriename: 'Aventura'}, {categoriename: 'Terror'}, {categoriename: 'Romance'},
 {categoriename: 'Policial'}, {categoriename: 'Educativo'} ])
 
