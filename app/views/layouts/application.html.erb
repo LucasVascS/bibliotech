@@ -10,9 +10,29 @@
     <%= stylesheet_link_tag    'application', media: 'all'%>
     <%= javascript_include_tag 'application' %>
   </head>
-
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+    
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <%=link_to 'Home', root_path, class: 'nav-link active', aria: {current: "page"}%>
+        </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >       
+        <li class="nav-item ">
+          <%=link_to "Sair", destroy_user_session_path , class: 'nav-link active ' , method: :delete %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
   <body>
     <%= yield %>
+    <%= insert_paloma_hook %>
   </body>
 </div>
 </html>

@@ -15,4 +15,6 @@
 //= require jquery3
 //= require popper
 //= require bootstrap
+//= require paloma
 //= require_tree .
+

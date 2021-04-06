@@ -40,6 +40,7 @@ gem 'bootstrap', '~> 5.0.0.beta2'
 gem 'jquery-rails'
 gem 'devise'
 gem 'ransack'
+gem 'paloma', '~> 5.1.0'
 
 
 
