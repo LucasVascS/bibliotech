@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: 'users/sessions' }
-  resources :books
+  resources :books do
+    collection do
+      get :show_table
+    end
+  end
 
   root to: 'books#index'
   

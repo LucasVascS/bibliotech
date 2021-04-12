@@ -4,8 +4,8 @@ class BooksController < ApplicationController
 
     def index
         
-        @q = Book.ransack(params[:q])
-        @books = @q.result(distinct: true).order(created_at: :desc)
+        #@q = Book.ransack(params[:q])
+        #@books = @q.result(distinct: true).order(created_at: :desc)
         #@books = Book.order(created_at: :desc)
 
     end
@@ -53,5 +53,13 @@ class BooksController < ApplicationController
         @book.destroy
         redirect_to books_url
 
+    end
+
+    def show_table
+        
+        @q = Book.ransack(params[:q])
+        @books = @q.result(distinct: true).order(created_at: :desc)
+        render partial: "layouts/table"
+        
     end
 end
