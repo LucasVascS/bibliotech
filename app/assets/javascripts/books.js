@@ -3,8 +3,9 @@ Paloma.controller('Books', {
     show_table()
     search_book()
     reload_button()
-    
+    autentication()  
 }
+
 });
 function search_book(){
   $('.searchbook').on("click", function () {
@@ -12,16 +13,20 @@ function search_book(){
     $.ajax({url:'/books/show_table', data: formdata, success: function(result) {
       $("#ajaxtable").html(result);
       openModal()
+      delete_book()
+
 
 
     }});
 
   });
 }
+
 function show_table(){
   $.ajax({url:'/books/show_table', success: function(result) {
     $("#ajaxtable").html(result);
     openModal()
+    delete_book()
   }});
   
 }
@@ -48,5 +53,35 @@ function reload_button(){
 
   });
 }
+function delete_book(){
+  $('.destroybook').on("click", function() {
+    var bookid = $(this).attr('data-url');
+    Swal.fire({
+      title: 'Tem certeza ?',
+      text: "Esta ação é irreversível",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Sim, Excluir!',
+      cancelButtonText: 'Cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Excluido!',
+          'Este registro foi deletado.',
+          'success',
+          $.ajax({method: 'delete',data: { authenticity_token: autentication() }, url: bookid, success: function() {
+            show_table()
+      
+          }})
+        )
+      }
+    })
+  });
+}
 
+function autentication(){
+  return $('[name="csrf-token"]')[0].content
 
+}

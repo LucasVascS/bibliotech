@@ -16,5 +16,6 @@
 //= require popper
 //= require bootstrap
 //= require paloma
+//= require sweetalert2/dist/sweetalert2.min
 //= require_tree .
 
