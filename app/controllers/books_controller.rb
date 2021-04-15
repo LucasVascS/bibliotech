@@ -1,6 +1,7 @@
 class BooksController < ApplicationController
 
     before_action :authenticate_user!
+    
 
     def index
         
@@ -21,13 +22,16 @@ class BooksController < ApplicationController
 
     end
 
+
     def update
         @book = Book.find(params[:id])
         book_params = params.require(:book).permit(:name, :author, :synopsis, :category_id)
         if @book.update(book_params)
-            redirect_to @book
+            redirect_to action: 'index'
+            flash[:success] = "Livro Salvo com Sucesso!"
         else
             render :edit
+            
         end
     end
 
@@ -42,17 +46,17 @@ class BooksController < ApplicationController
         @book.created_by_id = current_user.id
 
         if @book.save
-            redirect_to @book
+            redirect_to action: "index"
+            flash[:success] = "Livro Salvo com Sucesso!"   
         else
             render :new
+            
         end
     end
 
     def destroy
         @book = Book.find(params[:id])
         @book.destroy
-        redirect_to books_url
-
     end
 
     def show_table
@@ -60,6 +64,5 @@ class BooksController < ApplicationController
         @q = Book.ransack(params[:q])
         @books = @q.result(distinct: true).order(created_at: :desc)
         render partial: "layouts/table"
-        
     end
 end
