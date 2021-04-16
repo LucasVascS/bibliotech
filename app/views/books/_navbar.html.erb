@@ -1,22 +1,30 @@
 
 <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
-  <div class="container-fluid">
+  <div class="container-fluid ">
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse " id="navbarNav">
+    <div class="collapse navbar-collapse container" id="navbarNav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
           <%=link_to 'Home', root_path, class: 'nav-link active', aria: {current: "page"}%>
         </li>
       </ul>
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" >       
-        <li class="nav-item ">
-          <%=link_to "Sair", destroy_user_session_path , class: 'nav-link active ' , method: :delete %>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">       
+        <li class="nav-item " >
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+            <%= current_user.email %>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <li><button class="dropdown-item" type="button"><%=link_to "Sair", destroy_user_session_path , class: 'nav-link active ' , method: :delete %></button></li>
+            </ul>
+          </div>
+          
         </li>
       </ul>
     </div>
   </div>
-</nav>
+</nav><br>
 
