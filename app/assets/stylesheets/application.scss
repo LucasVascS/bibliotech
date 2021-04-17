@@ -68,8 +68,27 @@ div.navbarpropeties{
   
 }
 
+.linkformbutton {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #1E90FF;
+  width: 48%;
+  border: 0;
+  margin: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+  
+}
+
 .bodylogin {
   background-color: #ADD8E6;
+}
+.bodysingup {
+  background-color: #66CDAA;
 }
 
 .loginnamescreen{
