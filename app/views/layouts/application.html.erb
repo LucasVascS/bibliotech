@@ -12,7 +12,7 @@
   </head>
   
   <body>
-    <%= render partial: '/books/navbar'%>
+    <%= render partial: '/books/navbar' if user_signed_in?%>
     <div class="container">
     <%= flash_messages %>
     <%= yield %>
