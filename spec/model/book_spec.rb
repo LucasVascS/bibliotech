@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-
-
 RSpec.describe Book, :type => :model do
   context "Validate model book" do
     it "is valid" do
