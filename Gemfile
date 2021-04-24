@@ -48,6 +48,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem "faker", "~> 1.9.6"
+  gem 'rails-controller-testing'
 end
 
 group :development do
@@ -62,7 +63,9 @@ end
 group :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '>= 2.15', '< 4.0'
+  gem 'chromedriver-helper'
   gem 'selenium-webdriver'
+  gem "simplecov", require: false
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
   gem "shoulda-callback-matchers", "1.1.4"
