@@ -8,7 +8,7 @@ RSpec.describe User, :type => :model do
   end
 
   context 'Associations' do
-    it { should have_many (:books)}
+    it { should have_many(:books).with_foreign_key('created_by_id')}
   end
 
   context 'Validations' do
