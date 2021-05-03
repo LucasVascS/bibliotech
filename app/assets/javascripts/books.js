@@ -4,8 +4,7 @@ Paloma.controller('Books', {
     search_book()
     reload_button()
     autentication()  
-}
-
+  }
 });
 function search_book(){
   $('.searchbook').on("click", function () {
@@ -14,9 +13,6 @@ function search_book(){
       $("#ajaxtable").html(result);
       openModal()
       delete_book()
-
-
-
     }});
 
   });
@@ -39,8 +35,6 @@ function openModal(){
       $("#exampleModal .modal-body").html(result);
       $("#exampleModal .modal-title").html(bookName);
     }});
-    
-
   });
 }
 
@@ -50,7 +44,6 @@ function reload_button(){
     $('form.searchformclass').each (function() {
       this.reset();
     });
-
   });
 }
 function delete_book(){

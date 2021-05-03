@@ -60,9 +60,11 @@ class BooksController < ApplicationController
     end
 
     def show_table
-        
         @q = Book.ransack(params[:q])
-        @books = @q.result(distinct: true).order(created_at: :desc)
-        render partial: "layouts/table"
+        @books = @q.result(distinct: true).order(created_at: :desc).page (params[:page])
+        respond_to do |format|
+            format.html {render partial: "layouts/table"}
+            format.js
+        end
     end
 end

@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+    paginates_per 3
 
     belongs_to :category
     belongs_to :created_by, class_name: 'User' 
