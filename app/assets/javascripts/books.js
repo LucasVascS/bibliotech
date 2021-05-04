@@ -27,7 +27,7 @@ function show_table(){
   
 }
 function openModal(){
-  $('.open-modal').on("click", function() {
+  $("body").on("click", '.open-modal', function() {
     $('#exampleModal').modal('show')
     var url = $(this).attr('data-url');
     var bookName = $(this).attr('data-name');  
@@ -47,7 +47,7 @@ function reload_button(){
   });
 }
 function delete_book(){
-  $('.destroybook').on("click", function() {
+  $("body").on("click", '.destroybook', function() {
     var bookid = $(this).attr('data-url');
     Swal.fire({
       title: 'Tem certeza ?',
