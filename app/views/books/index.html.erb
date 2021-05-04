@@ -1,18 +1,19 @@
 <h1>Livros</h1>
+<body>
+  <div class="form">
+    <%= form_tag '#', method:'get', class: 'searchformclass'  do %>
+      <%= label_tag("q[name_cont]", "Nome do Livro:")%>
+      <%= text_field_tag("q[name_cont]")%>
+      <%= link_to 'Pesquisar', "#", class:'searchbook btn btn-primary' %>
+      <%= link_to 'Limpar', "#" , class:' reloadbutton btn btn-primary' %>
+    <%end%>
+  </div>
 
-<div class="form">
-  <%= form_tag '#', method:'get', class: 'searchformclass'  do %>
-    <%= label_tag("q[name_cont]", "Nome do Livro:")%>
-    <%= text_field_tag("q[name_cont]")%>
-    <%= link_to 'Pesquisar', "#", class:'searchbook btn btn-primary' %>
-    <%= link_to 'Limpar', "#" , class:' reloadbutton btn btn-primary' %>
-  <%end%>
-</div>
+  <div class="createbutton">
+    <%=link_to "Cadastrar livro", new_book_path, class:'btn btn-primary'%><br>
+  </div>
 
-<div class="createbutton">
-  <%=link_to "Cadastrar livro", new_book_path, class:'btn btn-primary'%><br>
-</div>
+  <div id="ajaxtable"></div>
 
-<div id="ajaxtable"></div>
-
-<td><%= render 'layouts/modal'%></td>
+  <td><%= render 'layouts/modal'%></td>
+</body>
